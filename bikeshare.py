@@ -210,12 +210,19 @@ def user_stats(df):
         print("\nThe gender counts are:\n", gender_counts)
 
     # TO DO: Display earliest, most recent, and most common year of birth
-    oldest_user= int(df['Birth Year'].min())
-    print("\nThe oldest user was born on the year", oldest_user)
-    youngest_user = int(df['Birth Year'].max())
-    print("The youngest user was born on the year", youngest_user)
-    common_year= int(df['Birth Year'].mode()[0])
-    print("Most users are born of the year", common_year)
+     try:
+        earliest_birth_year = str(int(df['Birth Year'].min()))
+        print("\nFor the selected filter, the oldest person to ride one "
+              "bike was born in: " + earliest_birth_year)
+        most_recent_birth_year = str(int(df['Birth Year'].max()))
+        print("For the selected filter, the youngest person to ride one "
+              "bike was born in: " + most_recent_birth_year)
+        most_common_birth_year = str(int(df['Birth Year'].mode()[0]))
+        print("For the selected filter, the most common birth year amongst "
+              "riders is: " + most_common_birth_year)
+    except:
+        print("We're sorry! There is no data of birth year for {}."
+              .format(city.title()))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
