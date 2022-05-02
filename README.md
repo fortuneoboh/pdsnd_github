@@ -2,7 +2,7 @@
 GitHub project (Project 3) repository for PDSND
 # Udacity-programming-for-Data-Science-using-Python-Nanodegree
 
-# Created by Fortune Oboh
+# Authored by Fortune Oboh
 
 This repository contains projects and practice set for Udacity Programming For Data Science Using Python Nanodegree.
 
