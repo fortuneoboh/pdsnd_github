@@ -44,7 +44,7 @@ def get_filters():
         if day in days:
             break
         else:
-            print("\n Kindly enter a valid day") 
+            print("\n Kindly enter a valid day, please") 
 
 
 
@@ -205,9 +205,13 @@ def user_stats(df):
     print("The user types are:\n",user_counts)
 
     # TO DO: Display counts of gender
-    if city.title() == 'New York City' or city.title() == 'Chicago':
-        gender_counts= df['Gender'].value_counts()
-        print("\nThe gender counts are:\n", gender_counts)
+    try:
+        gender_distribution = df['Gender'].value_counts().to_string()
+        print("\nDistribution for each gender:")
+        print(gender_distribution)
+    except KeyError:
+        print("Sorry! No data of user genders for {}."
+              .format(city.title()))
 
     # TO DO: Display earliest, most recent, and most common year of birth
     oldest_user= int(df['Birth Year'].min())
